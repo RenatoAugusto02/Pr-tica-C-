@@ -1,0 +1,33 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        decimal total = 0;
+        while (true)
+        {
+            Console.Write("Digite o valor do produto (0 para finalizar): ");
+            string? input = Console.ReadLine();
+            if (decimal.TryParse(input, out decimal valor))
+            {
+                if (valor == 0)
+                {
+                    break;
+                }
+                else if (valor < 0)
+                {
+                    Console.WriteLine("Valor inválido! Por favor, digite um valor positivo.");
+                }
+                else
+                {
+                    total += valor;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido! Por favor, digite um número.");
+            }
+        }
+        Console.WriteLine($"Valor total da compra: R$ {total:F2}");
+    }
