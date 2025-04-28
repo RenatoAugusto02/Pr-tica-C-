@@ -1,0 +1,33 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[10];
+        int total = 0;
+
+        // Preencher o array com números digitados pelo usuário
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o número {i + 1}: ");
+            string? input = Console.ReadLine();
+            if (int.TryParse(input, out int numero))
+            {
+                numeros[i] = numero;
+                total += numero;
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido! Por favor, digite um número.");
+                i--;
+            }
+        }
+
+        // Mostrar todos os números digitados
+        Console.WriteLine("\nNúmeros digitados: " + string.Join(", ", numeros));
+
+        // Exibir o valor total da soma
+        Console.WriteLine($"\nA soma dos números é: {total}");
+    }
+}
