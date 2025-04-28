@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite quantos números quer digitar: ");
+        string? input = Console.ReadLine();
+        if (int.TryParse(input, out int qtd) && qtd > 0)
+        {
+            int[] numeros = new int[qtd];
+            int total = 0;
+
+            for (int i = 0; i < qtd; i++)
+            {
+                Console.Write($"Digite o Número {i + 1}: ");
+                string? numeroInput = Console.ReadLine();
+                if (int.TryParse(numeroInput, out int numero))
+                {
+                    numeros[i] = numero;
+                    total += numero;
+                }
+                else
+                {
+                    Console.WriteLine("Valor inválido! Por favor, digite um número.");
+                    i--;
+                }
+            }
+
+            Console.WriteLine("\nNúmeros digitados: " + string.Join(", ", numeros));
+            Console.WriteLine($"\nA soma dos números é: {total}");
+        }
+        else
+        {
+            Console.WriteLine("Valor inválido! Por favor, digite um número positivo.");
+        }
+    }
+}
