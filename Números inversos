@@ -1,0 +1,41 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[7];
+
+        Console.WriteLine("Digite 7 números inteiros:");
+
+        // Lê os 7 números
+        for (int i = 0; i < 7; i++)
+        {
+            Console.Write($"Número {i + 1}: ");
+
+            while (!int.TryParse(Console.ReadLine(), out numeros[i]))
+            {
+                Console.WriteLine("Valor inválido. Digite um número inteiro.");
+                Console.Write($"Número {i + 1}: ");
+            }
+        }
+
+        // Mostra na ordem original
+        Console.WriteLine("\nNúmeros na ordem original:");
+        foreach (int num in numeros)
+        {
+            Console.Write(num + " ");
+        }
+
+        Console.WriteLine(); // Quebra de linha
+
+        // Mostra na ordem inversa
+        Console.WriteLine("\nNúmeros na ordem inversa:");
+        for (int i = numeros.Length - 1; i >= 0; i--)
+        {
+            Console.Write(numeros[i] + " ");
+        }
+
+        Console.WriteLine(); // Quebra de linha
+    }
+}
